@@ -1,8 +1,0 @@
-#!/bin/bash
-
-while true
-do
-	lp ./main.pdf
-	sleep 5
-done
-
