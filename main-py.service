@@ -4,9 +4,9 @@ After=multi-user.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/python3 /home/craven/main/main.py
+ExecStart=/usr/bin/python3 /home/USER/main/main.py
 Restart=always
-User=craven
+User=USER
 
 [Install]
 WantedBy=multi-user.target
