@@ -1,0 +1,12 @@
+[Unit]
+Description=Main Python Program
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /home/craven/main/main.py
+Restart=always
+User=craven
+
+[Install]
+WantedBy=multi-user.target
