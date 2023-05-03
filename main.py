@@ -1,3 +1,4 @@
+from glob import glob
 import signal
 import sys
 import argparse
@@ -7,7 +8,7 @@ import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 import vlc as VLC
 
 AUDIO_FILE = '/home/craven/test.mp3'
-PDF_FILE = '/home/craven/main/main.pdf'
+PDF_DIRECTORY = '/home/craven/main/pdfs/*.pdf'
 INPUT_PIN = 10
 PLAYER = None
 LOOP_SLEEP = 0.2
@@ -63,6 +64,10 @@ def loop():
 
 	playing = False
 
+	pdfs = glob(PDF_DIRECTORY)
+
+	i = 0;
+
 	while True:
 		if getIsOffHook() and playing == False:
 			print('Playing')
@@ -73,7 +78,11 @@ def loop():
 			playing = False
 			PLAYER.pause()
 			print('Printing')
-			subprocess.run(f'lp {PDF_FILE}', shell=True)
+			pdf_file = pdfs[i]
+			subprocess.run(f'lp {pdf_file}', shell=True)
+			i += 1
+			if i > 3:
+				i = 0
 
 		sleep(LOOP_SLEEP)
 
