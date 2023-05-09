@@ -12,7 +12,6 @@ AUDIO_DIRECTORY = '/home/craven/main/audio/*'
 PDF_DIRECTORY = '/home/craven/main/pdfs/*.pdf'
 INPUT_PIN = 10
 LOOP_SLEEP = 0.2
-PDF_DIRECTORY = '/home/craven/main/pdfs/*.pdf'
 PLAYER = None
 
 def getInput():
@@ -34,7 +33,6 @@ def initVLC():
 
     # creating a vlc instance
     vlc = VLC.Instance()
-
 
     tracks = glob(AUDIO_DIRECTORY)
 
